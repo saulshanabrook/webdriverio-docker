@@ -1,7 +1,8 @@
 machine:
   services:
     - docker
-
+  python:
+    version: 2.7.9
 dependencies:
   override:
     - pip install -U docker-compose
