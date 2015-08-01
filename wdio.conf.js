@@ -36,7 +36,7 @@ exports.config = {
   // https://docs.saucelabs.com/reference/platforms-configurator
   //
   capabilities: [{
-    browserName: 'chrome'
+    browserName: process.env['WDIO_BROWSER_NAME']
   }],
   //
   // ===================

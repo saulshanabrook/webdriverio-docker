@@ -8,6 +8,8 @@ test-chrome:
   links:
     - selenium-chrome
   working_dir: /app
+  environment:
+    WDIO_BROWSER_NAME: 'chrome'
 
 phantomjs:
   image: cmfatih/phantomjs
@@ -23,6 +25,8 @@ test-phantomjs:
   links:
     - phantomjs
   working_dir: /app
+  environment:
+    WDIO_BROWSER_NAME: 'phantomjs'
 
 
 selenium-firefox:
@@ -35,3 +39,5 @@ test-firefox:
   links:
     - selenium-firefox
   working_dir: /app
+  environment:
+    WDIO_BROWSER_NAME: 'firefox'

@@ -7,7 +7,7 @@ describe('my webdriverio tests', function(){
     this.timeout(99999999);
     var client = {};
     before(function(done){
-            client = webdriverio.remote();
+            client = webdriverio.remote({ desiredCapabilities: {browserName: process.env['WDIO_BROWSER_NAME']} });
             client.init(done);
     });
 
