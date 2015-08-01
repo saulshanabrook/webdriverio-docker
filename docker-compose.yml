@@ -1,0 +1,10 @@
+selenium-chrome:
+  image: selenium/standalone-chrome:2.46.0
+test-chrome:
+  build: .
+  volumes:
+    - .:/app
+  command: wdio wdio.conf.js
+  links:
+    - selenium-chrome
+  working_dir: /app
