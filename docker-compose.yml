@@ -4,7 +4,34 @@ test-chrome:
   build: .
   volumes:
     - .:/app
-  command: wdio wdio.conf.js
+  command: sh -c 'sleep 1; wdio wdio.conf.js --host selenium-chrome --port 4444'
   links:
     - selenium-chrome
+  working_dir: /app
+
+phantomjs:
+  image: cmfatih/phantomjs
+  ports:
+    - 8910
+  entrypoint: phantomjs
+  command: "--webdriver=8910"
+test-phantomjs:
+  build: .
+  volumes:
+    - .:/app
+  command: sh -c 'sleep 1; wdio wdio.conf.js --host phantomjs --port 8910'
+  links:
+    - phantomjs
+  working_dir: /app
+
+
+selenium-firefox:
+  image: selenium/standalone-firefox:2.46.0
+test-firefox:
+  build: .
+  volumes:
+    - .:/app
+  command: sh -c 'sleep 1; wdio wdio.conf.js --host selenium-firefox --port 4444'
+  links:
+    - selenium-firefox
   working_dir: /app
