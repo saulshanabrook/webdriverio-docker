@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - pip install -U docker-compose
+    - docker-compose pull
+test:
+  override:
+    - docker-compose up test-chrome
+    - docker-compose up test-firefox
+    - docker-compose up test-phantomjs
